@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fecha actual</title>
+</head>
+<body>
+	<button onClick="miFunction()">Pulse para sabe la fecha de hoy</button>
+	<p id="fecha"></p>
+	<script>
+		function miFunction(){
+			var fecha = new Date();
+			document.getElementById("fecha").innerHTML = "Day :" + fecha.getDate() + 
+				"<br>Month: " + fecha.getMonth() +
+				"<br>Year: " + fecha.getFullYear();
+		}
+	</script>
+</body>
+</html>

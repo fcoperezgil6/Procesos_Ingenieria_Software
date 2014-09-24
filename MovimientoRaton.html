@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movimiento raton</title>
+	<style type="text/css">
+		#div{
+			background-color: blue;
+			width: 200px;
+			height: 200px;
+			float: center;
+		}
+	</style>
+	<script>
+		function tocando(){
+			document.getElementById("p").innerHTML = "Saca el raton de encima!!!!";
+		}
+		function saliendo(){
+			document.getElementById("p").innerHTML = "";
+		}
+	</script>
+</head>
+<body>
+	<div id="div" onmouseover="tocando()" onmouseout="saliendo()">
+		<p id="p"></p>
+	</div>
+</body>
+
+</html>
