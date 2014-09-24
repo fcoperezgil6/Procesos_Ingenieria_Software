@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Suma</title>
+  </head>
+  <body>
+    <div>
+      <p>Escribe el numero de veces que doblas el papel para calcular el espesor en metros</p>
+      <input type="number" id="entrada"/>
+      <button onclick="calcular()">Calcular</button>
+      <h2 id="resultado"></h2>
+    </div>
+   
+    <script>
+      function calcular(){
+        var valor = document.getElementById("entrada").value;
+        
+        if(isNaN(valor)){
+          alert("Ha introducido un valor incorrecto")
+        }else{
+          document.getElementById("resultado").innerHTML = "Resultado: " + ((Math.pow(2,valor))/10000) + "   metros";
+        }
+      }
+    </script>
+  </body>
+</html>

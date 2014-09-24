@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Suma</title>
+  </head>
+  <body>
+    
+      <p>Escribe el valor 1</p>
+      <input type="text" id="entrada1"/><br>
+      <p>Escribe el valor 2</p>
+      <input type="text" id="entrada2"/><br>
+      <button onclick="sumar()">Calcular</button><br>
+       <h2 id="resultado"></h2>
+
+   
+    <script>
+      function sumar(){
+        var valor1 = document.getElementById("entrada1").value;
+        var valor2 = document.getElementById("entrada2").value;
+        if(isNaN(valor1) || (isNaN(valor2))){
+          alert("Ha introducido algun valor incorrecto")
+        }else{
+          document.getElementById("resultado").innerHTML = "Resultado: " + (parseInt(valor1) + parseInt(valor2));
+        }
+      }
+    </script>
+  </body>
+</html>

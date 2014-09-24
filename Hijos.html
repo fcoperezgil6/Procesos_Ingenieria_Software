@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Suma</title>
+  </head>
+  <body>
+    <button onclick="add()">Add new Element</button>
+    <div id="div" style="background-color:blue;float:left;">
+    </div>
+   
+    <script>
+      function add(){
+        var elemento = document.getElementById("div");
+        var child = document.createElement("h4");
+        child.innerHTML ="Creado un nuevo hijo";
+        elemento.appendChild(child);        
+      }
+    </script>
+  </body>
+</html>

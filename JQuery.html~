@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("p").click(function(){
+    $(this).hide();
+  });
+  
+  $("div").click(function(){
+    $("#esplotar").hide( "explode", {pieces: 16}, 2000 );
+    $("p").show();
+  });
+});
+</script>
+</head>
+<body>
+
+<p>Si me tocas me voy.</p>
+<p>Y Yo tambien</p>
+<div id="esplotar" style="background-color: red;width:200px;height:200px">
+Jaja yo exploto
+</div>
+</body>
+</html>
+

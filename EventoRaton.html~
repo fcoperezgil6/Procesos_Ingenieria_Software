@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:#D94A38;width:200px;height:20px;padding:40px;">
+    No entres con el raton
+  </div>
+
+  <script>
+    function mOver(obj) {
+        obj.innerHTML = "Sal fuera!!!!!"
+    }
+
+    function mOut(obj) {
+        obj.innerHTML = "No entres con el raton"
+    }
+  </script>
+
+</body>
+</html> 

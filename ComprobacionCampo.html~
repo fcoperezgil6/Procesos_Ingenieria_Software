@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Comprobacion campo</title>
+  </head>
+  <body>
+    <div>
+      <p>Escribe un numero entre 1 y 10</p>
+      <input type="text" id="entrada"/>
+      <p id="resultado"></p>
+      <button type="submit" onclick="comprobar()">Comprobar</button>
+    </div>
+    <script>
+      function comprobar(){
+        var valor = document.getElementById("entrada").value;
+        alert(valor);
+        if(valor > 10 || valor < 1 || isNaN(valor)){
+          document.getElementById("resultado").innerHTML = "No ha introducido un numero entre 1 y 10";
+        }else{
+          document.getElementById("resultado").innerHTML = "OK, XD";
+        }
+      }
+    </script>
+  </body>
+</html>
