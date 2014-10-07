@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+		<meta charset="utf-8">
+	<title>Selectores</title>
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script>
+		$(document).on('ready',function(){
+			var seleccion=$('.ejem1');
+			if(seleccion.length>0)
+				console.log(seleccion.length)
+			else
+				console.log('No existen elementos'); /* cambiar class */
+			
+			
+			// filtramos los elementos que no tienen cl1
+			//	hay que agregar cl1 después de ejem1
+			// esto pone ese mensaje a los que no tengan las clase cl1
+			seleccion.not('.cl1').text('Este elemento no tiene la clase cl1');
+			
+
+			
+			// Ejemplo de la función has
+			// Pone este texto en todas las etiquetas <p> que tengan las clase .cl1
+			seleccion.has('p').text('Este elemento tiene un <p> en su contenido')
+			
+
+			
+			// Ejemplo de la función first
+			// Pone al primer <li> el situiente texto
+			$('li').first().html('<strong>Soy el elemento num 1</strong>')
+			
+			
+			
+			// Acceder al elemento ene:
+			// Pone al tercer <li> el siguiente codigo
+			$('li').eq(3).html('Soy el elemento num 3');
+			
+		});
+	</script>
+</head>
+<body>
+	<div class="ejem1 cl1">
+		<p>Uno</p>
+	</div>
+	<div class="ejem1 cl1">
+		<span>
+			Otro
+		</span>
+	</div>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>				
+	</ul>
+</body>
+</html>
