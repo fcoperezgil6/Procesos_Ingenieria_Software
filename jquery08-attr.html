@@ -6,18 +6,22 @@
 	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 	<script>
 		$(document).on('ready',function(){
-			var clase=$('#prueba').attr('class');
-			console.log(clase);
+			//obetenemos la clase de #prueba
+			var clase = $('#prueba').attr('class');
+			console.log('Vemos la clase de id=prueba: ' + clase);
 
 			/* ejemplo 2*/
+			//añade el atributo class=cambioClase
 			$('#prueba').attr('class','cambioClase');
 			console.log($('#prueba').attr('class'));
 
-			/*Para quitar atributo: removeAttr
+			/*Para quitar atributo: removeAttr*/
+			//elimina el atributo class de #prueba
 				$('#prueba').removeAttr('class');
-			*/
+			
 
 			/*Otro modo de modificar atributos: mediante una función:*/
+			//se le pasa una funcion que crea un string y lo devuelve para ser asignado como clase
 			$('#prueba').attr('class',function(){
 				var cadena='NuevoAtributo';
 				return cadena;
@@ -27,11 +31,13 @@
 			/*Ejemplo práctico del método attr*/
 			// obsérvese el parámentro de la función (e),
 			// permite manejar el evento
+			//maneja el evento click en la etiqueta a al que se le pasa una funcion 
 			$('a').on('click',function(e){
-				var link=$(this).attr('href');
-				e.preventDefault();
+				var link = $(this).attr('href');
+				console.log('link: ' + link);
+				e.preventDefault();//evita la accion por defecto
 				alert('Esta siendo redireccionado');
-				location.href=link;
+				location.href=link;//es como si se hiciera click en el enlace
 			});
 			
 		});

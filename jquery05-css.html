@@ -6,26 +6,32 @@
 	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 		<script>
 		$(document).on('ready',function(){
+			//pone a las etiquetas 'body' y 'html' la propiedad css bacground = #FFF
 			$('body,html').css('background','#FFF');
 
-			/* Modificar una propiedad */
+			/* Modificar una propiedad cambia el css de la etiqueta h1*/
 			$('h1').css('text-align','center');
 
 			/* Ejemplo2: para modificar varias propiedades */
+			//crea una variable la informacion css que quiere fijar para utilizarla despues
 			var cssH1={
 				'text-align':'center',
 				'color':'red'
 			}
 
+			//añade a la etiqueta css varios comandos css a traves de la variable cssH1
 			$('h1').css(cssH1);
 			/* también podríamos haber puesto directamente el objeto Json 
 			dentro del método css*/
 
 
 			/* Ejemplo3: condiciones */
+			//obtiene el valor de backgroud-color y color de los id item2
 			var bgItem2 = $('#item2').css('background-color');
 			var cItem2 = $('#item2').css('color');
-
+			console.log(bgItem2);
+			console.log(cItem2);
+			//muestro compruevo si tienen el mismo valor, en este caso el mismo color y lo digo en la consola
 			if (bgItem2==cItem2)
 				console.log('tienen el mismo color'+bgItem2);
 

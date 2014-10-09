@@ -43,19 +43,22 @@
 	<script>
 		$(document).on('ready',function(){
 			/* Ejemplo1: devuelve el ancho de la etiqueta <header> sin unidades*/
-			console.log($('header').width()); 
-			/*alternativa con unidades: 
-			console.log($('header').css('width'));*/
+			console.log('Anchura sin unidades: ' + $('header').width()); 
+			/*alternativa con unidades:*/
+			console.log('Anchura con udidades: ' + $('header').css('width'));
 
-			/* Ejemplo2: set de width 
+			/* Ejemplo2: set de width */
+			//fija el ancho de header y img a 100
 			$('header img').width(100);
-			*/
+			
 
 			/*Ejemplo de get con height */
-			console.log($('#e1').height());
+			//obtiene la altura de id= e1
+			console.log('Altura de id=e1:' + $('#e1').height());
 			
-			/* ejemplo set height
-			$('#e1').height(50); */
+			/* ejemplo set height*/
+			//fija la altura de id=e1 a 50
+			$('#e1').height(50); 
 
 			/* Obtener y cambiar la posición*/
 			var pos=$('#e2 p').position();
