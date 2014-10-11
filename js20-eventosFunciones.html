@@ -4,7 +4,9 @@
 	<script>
 		function attachEvent(){
 			var btn=document.getElementById("btn");
+			//comprueba que existe el boton
 			if (btn){
+				//Le asigna al evento onclick la funcion
 				btn.onclick=function(){
 					alert('Ahora soy un boton funcional');
 				};

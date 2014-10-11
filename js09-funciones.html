@@ -12,7 +12,7 @@
 		var f2=function(a,b){
 			alert("Suma="+(a+b).toString());
 		}
-		//Comprueba el resultado cuando falta un parametro f2(4)
+		//Comprueba el resultado cuando falta un parametro f2(4), devuelve NaN
 
 		//Funcion anonima con parametros no conocidos
 		var f3=function(){
@@ -35,7 +35,7 @@
 </head>
 <body>
 	<input type="button" value="Mostrar mensaje" onclick="f1()">
-	<input type="button" value="Mostrar suma" onclick="f2(5,2)">
+	<input type="button" value="Mostrar suma" onclick="f2(5)">
 	<input type="button" value="Mostrar suma de parametros" onclick="f3(10,20,30,40,50)">
 	<input type="button" value="Mostrar resta" onclick="alert('Resta='+f4(5,2).toString())">
 	</body>
