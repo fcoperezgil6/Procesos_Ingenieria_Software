@@ -10,20 +10,20 @@
 			$.fx.speeds.lento=3000;
 			$.fx.speeds.rapido=100;
 			$('#b1').click(function(){
-				//$('#ejemplo').fadeOut(); //'slow'
-				//$('#ejemplo').fadeOut('lento'); //'rapido'
+				//$('#ejemplo').fadeOut('lento'); //'slow'
+				//$('#ejemplo').fadeOut('rapido'); //'rapido'
 
 				//se puede disparar una función al terminar
 				$('#ejemplo').fadeOut('lento',function(){
-					//1-
+					//1-Añade al final del cuerpo la cadena indicada
 					//$('body').append('El elemento se ha borrado');
 
 					//2-
-					//$(this).remove(); //inspecciona elemento y comprueba elements
-					//comprueba el ejemplo con y sin remove()
+					//$(this).remove(); //se ha eliminado en este caso la etiqueta div totalmente si no se pone remove desaparece pero no se elimina la etiqueta <div>
+					
 
 					//3-desaparece el elemento y lo volvemos a mostrar rápido
-					//$(this).fadeIn('rapido');
+					$(this).fadeIn('rapido');
 				});				
 
 			})

@@ -8,10 +8,12 @@
 		$(document).on('ready',function(){
 			//métodos útiles: each
 			// recorrer una colección: 
-			// var col=['uno','dos','tres'];
-			// $.each(col, function(index,elem)
-			// { console.log(index+' '+ elem) 
-			//	});
+			/*
+			var col=['uno','dos','tres'];
+			$.each(col, function(index,elem){ 
+				console.log(index+' '+ elem) 
+			});
+			*/
 
 			// Localizar un elemento en una col $.inArray(valor,col)
 			// ese método devuelve el índice del elto o -1
@@ -24,9 +26,9 @@
 			// el elemento indicado
 			// La estructura sería así: $.data(elemento, atributo,valor)
 			// ejemplo:
-			// $('ul li').each(function(index,elem){
-				//$.data(elem,'posicion',index);
-			//});
+			$('ul li').each(function(index,elem){
+				$.data(elem,'posicion',index);
+			});
 
 			// Otro ejemplo de uso del método data
 			//$('ul li').each(function(index,elem) {

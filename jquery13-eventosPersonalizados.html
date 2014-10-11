@@ -5,7 +5,7 @@
 	<title>Eventos personalizados</title>
 	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 	<script>
-		$(document).on('ready',function(){
+	$(document).on('ready',function(){
 		// Como crear eventos personalizados
 		// Con el evento change conseguimos el mismo resultado
 		// Este ejemplo implementa ese comportamiento como si no existiera change
@@ -30,7 +30,7 @@
 		$('button').on('click',function(){
 			$('#miInput').trigger('cambio',[$(this).attr('id')]);
 		});
-		});
+	});
 	</script>
 </head>
 <body>

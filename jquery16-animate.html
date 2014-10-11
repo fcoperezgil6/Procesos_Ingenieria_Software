@@ -12,11 +12,12 @@
 			//1-
 			/*
 			$('#caja1').animate({
-				'margin-bottom':0
+				'margin-bottom':0//hace que el margen inferior sea 0 durando 0.8
 			},800)	
 			*/
 			//2-definimos una función al terminar la animación
 			// esta segunda función cambia el margin-top
+			
 			/*
 			$('#caja1').animate({
 				'margin-bottom':0
@@ -27,13 +28,14 @@
 				})
 			})	
 			*/
+
 			//Con el método animate solo podemos modificar valores numéricos
 			//Si quiero modificar un valor no numérico, como el color
 			//Hay un plugin para expandir la animación a colores
 			//bitstorm.org/jquery/color-animation
 			//agregamos el script arriba junto a jquery:
 			//<script src="http://www.bitstorm.org/jquery/color-animation/jquery.animate-colors-min.js">
-			/*
+			
 			$('#caja1').animate({
 				'margin-bottom':0
 			},800,function(){
@@ -43,7 +45,7 @@
 					'opacity':0.5
 				})
 			})	
-			*/
+			
 		});
 	</script>
 	<style>

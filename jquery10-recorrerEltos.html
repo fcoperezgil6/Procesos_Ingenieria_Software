@@ -7,21 +7,26 @@
 	<script>
 		$(document).on('ready',function(){
 			// Ejemplo para ilustrar cómo recorrer elementos
-
+			//se pone en el siguiente elemento
 			//var sig=$('#elto1').next().text();
 			//console.log(sig);
 
+			//apunta al primer elemento #elto1
 			//var sig=$('#elto1').first().text();
 			//console.log(sig);
 
+			//se posiciona en el segundo li
 			//var sig=$('ul li').next().text();
 			//console.log(sig);
 
+			//Devuelve el padre, en este caso la etiqueta <article>
 			//var sig=$('#test').parent().text();
 			//console.log(sig);
 
+			//muestra el el id de su padre que es #padre
 			//console.log($('#test').parent().attr('id'));
 
+			//muestra el id del hijo en este caso #test
 			//console.log($('#padre').children().attr('id'));
 			
 			//el método siblings devuelve los elementos del mismo nivel
@@ -29,12 +34,11 @@
 			//ete ejemplo da error:
 			//console.log($("#elto1").siblings());
 
-			/* recorrer todos los elementos de la lista
+			//recorrer todos los elementos de la lista, se crea una función a la que se le pasa el indice y el elemento de la lista
 			$('ul li').each(function(index,elem){
 				console.log('Elemento num:'+$(index).text()+' contiene:'+$(elem).text());
 			})
-			
-			*/
+						
 		});
 	</script>
 </head>

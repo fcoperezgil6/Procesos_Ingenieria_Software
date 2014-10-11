@@ -19,6 +19,12 @@
 
 			//Otro ejemplo similar
 			/*
+			e.pageX nos devuelve la posicion del raton
+			e.screenX nos devuelve la coordenada orizontal
+			e.preventDefault -> para la funcion por defecto 
+			e.type -> devuelve el tipo de evento que fue lanzado
+			*/
+			/*
 			$('a').on('click',function(e){
 				console.log(e.pageX); //e.screenX)
 				// probar e.preventDefault
@@ -29,16 +35,18 @@
 			//Ejemplo que muestra cómo vincular y desvincular eventos
 			// se usan los métodos mouseover y mouseout
 			// para más información hay que consultar la web de jQuery
-			/*
-			var caja1bg;			
+			
+			var caja1bg;	
+			//cuando se pasa el raton por encima pone el fondo en rojo y guarda el estado previo		
 			$('#caja1').mouseover(function(){
-				caja1bg=$('#caja1').css('background');
-				$(this).css('background','red');
+				caja1bg=$('#caja1').css('background');//guarda el fondo previo
+				$(this).css('background','red');// pone el fondo en rojo
 			})
+			//cuando sale el raton pone el fondo como en el estado previo
 			$('#caja1').mouseout(function(){
-				$(this).css('background',caja1bg);
+				$(this).css('background',caja1bg);//restaura el fondo anterior
 			})
-			*/
+			
 
 		});
 	</script>
