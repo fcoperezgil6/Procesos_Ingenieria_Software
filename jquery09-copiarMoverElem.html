@@ -11,43 +11,56 @@
 
 			// Agrega un elemento al final (el primero: ol:first)
 			//	primero selecciono el elemento a mover y luego el destino
-			// toma el primer li y lo pone al final
+			// toma el primer li del primer ol y lo pone al final del ol
 			//$('ol li:first').appendTo('ol');
 			
 			/*otro modo de hacer lo mismo*/
 			// append lo añade al final
-			$('ol:first').append($('ol li:first'));
+			//al primer ol le añade al final el primer li del primer ol
+			//$('ol:first').append($('ol li:first'));
 			
 
-			/*método prepend
-			$('ol li:last').prependTo('ol:first');	
+			/*método prepend*/
+			//toma el ultimo li de ol y lo pone al principio del primer ol
+			//$('ol li:last').prependTo('ol:first');	
 			
-			$('ol:first').prepend($('ol li:last'));
-			*/
+			//igual al anterior
+			//$('ol:first').prepend($('ol li:last'));
+			
 
-			/* insert 
-			$('ol li:first').insertAfter('#e1');
+			/* insert */
+			//pone el primer li deespues de #e1
+			//$('ol li:first').insertAfter('#e1');
 			
-			$('#e1').after($('ol li:first'));
-			*/
+			//igual al anterior
+			//$('#e1').after($('ol li:first'));
 			
-			/*metodo insertBefore
-			$('ol li:first').insertBefore('#e1');
-			$('#e1').before($('ol li:first'));
-			*/
+			
+			/*metodo insertBefore*/
+			//pone el primer li antes de #e1
+			//$('ol li:first').insertBefore('#e1');
 
-			/*clonar elementos: no lo quita de la lista
+			//igual al anterior
+			//$('#e1').before($('ol li:first'));
+			
+
+			/*clonar elementos: no lo quita de la lista*/
+			//crea una copia y lo pone antes de #e1
+			/*
 			var clon=$('ol li:first').clone();
 			$('#e1').before(clon);
 			*/
 
 			/*crear nuevos elementos*/
-			// var nuevoElto=$('<p>Nuevo elemento</p>');
-			// $('#e1').before(nuevoElto);	
-			//$('#e2').append(nuevoElto);
+			//crea un nuevo elemento
+			/*
+			var nuevoElto=$('<p>Nuevo elemento</p>');
+			$('#e1').before(nuevoElto);	
+			$('#e2').append(nuevoElto);
+			*/
 
 			//eliminar elementos
-			//$('ol li:last').remove();
+			$('ol li:last').remove();
 			});			
 		});
 	</script>
