@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Array de objetos JSon</h2>
+
+<p id="demo"></p>
+<p id="completo"></p>
+
+<script>
+var employees = [
+    {
+    "firstName":"John",
+    "lastName":"Doe"
+    }, 
+    {
+    "firstName":"Anna",
+    "lastName":"Smith"
+    },
+    {
+    "firstName":"Peter",
+    "lastName":"Jones"
+    },
+];
+
+employees[0].firstName="Gilbert";
+document.getElementById("demo").innerHTML =
+employees[0].firstName + " " + employees[0].lastName;
+
+document.getElementById('completo').innerHTML = employees[1].firstName + " " + employees[1].lastName;
+</script>
+
+</body>
+</html>

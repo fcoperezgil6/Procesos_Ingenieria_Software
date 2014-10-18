@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Using Eval from JSon </h2>
+
+<p id="demo"></p>
+
+<script>
+var txt = '{"employees":[' +
+'{"firstName":"John","lastName":"Doe" },' +
+'{"firstName":"Anna","lastName":"Smith" },' +
+'{"firstName":"Peter","lastName":"Jones" }]}';
+
+//la función eval permite pasa el objeto json a objeto entendible directamente por javascript. Es necesario porne los dos parentesis de la función para que javascript no se confunda con los corchete.
+var obj = eval ("(" + txt + ")");
+
+document.getElementById("demo").innerHTML =
+obj.employees[1].firstName + " " + obj.employees[1].lastName;
+</script>
+
+</body>
+</html>
