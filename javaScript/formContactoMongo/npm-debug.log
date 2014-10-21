@@ -1,0 +1,86 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'mondodb' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose cache add [ 'mondodb', null ]
+6 verbose cache add name=undefined spec="mondodb" args=["mondodb",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'mondodb',
+7 verbose parsed url   path: 'mondodb',
+7 verbose parsed url   href: 'mondodb' }
+8 silly lockFile 6c244df0-mondodb mondodb
+9 verbose lock mondodb C:\Users\usuario\AppData\Roaming\npm-cache\6c244df0-mondodb.lock
+10 silly lockFile 6c244df0-mondodb mondodb
+11 silly lockFile 6c244df0-mondodb mondodb
+12 verbose addNamed [ 'mondodb', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile bcf5981b-mondodb mondodb@
+15 verbose lock mondodb@ C:\Users\usuario\AppData\Roaming\npm-cache\bcf5981b-mondodb.lock
+16 silly addNameRange { name: 'mondodb', range: '*', hasData: false }
+17 verbose request where is /mondodb
+18 verbose request registry https://registry.npmjs.org/
+19 verbose request id 4590252368b7a5b1
+20 verbose url raw /mondodb
+21 verbose url resolving [ 'https://registry.npmjs.org/', './mondodb' ]
+22 verbose url resolved https://registry.npmjs.org/mondodb
+23 verbose request where is https://registry.npmjs.org/mondodb
+24 info trying registry request attempt 1 at 16:58:42
+25 http GET https://registry.npmjs.org/mondodb
+26 http 404 https://registry.npmjs.org/mondodb
+27 verbose headers { date: 'Tue, 21 Oct 2014 15:00:31 GMT',
+27 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 verbose headers   'content-type': 'application/json',
+27 verbose headers   'cache-control': 'max-age=0',
+27 verbose headers   'content-length': '52',
+27 verbose headers   'accept-ranges': 'bytes',
+27 verbose headers   via: '1.1 varnish',
+27 verbose headers   age: '0',
+27 verbose headers   'x-served-by': 'cache-lcy1127-LCY',
+27 verbose headers   'x-cache': 'MISS',
+27 verbose headers   'x-cache-hits': '0',
+27 verbose headers   'x-timer': 'S1413903631.154453,VS0,VE89',
+27 verbose headers   'keep-alive': 'timeout=10, max=50',
+27 verbose headers   connection: 'Keep-Alive' }
+28 silly registry.get cb [ 404,
+28 silly registry.get   { date: 'Tue, 21 Oct 2014 15:00:31 GMT',
+28 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 silly registry.get     'content-type': 'application/json',
+28 silly registry.get     'cache-control': 'max-age=0',
+28 silly registry.get     'content-length': '52',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     age: '0',
+28 silly registry.get     'x-served-by': 'cache-lcy1127-LCY',
+28 silly registry.get     'x-cache': 'MISS',
+28 silly registry.get     'x-cache-hits': '0',
+28 silly registry.get     'x-timer': 'S1413903631.154453,VS0,VE89',
+28 silly registry.get     'keep-alive': 'timeout=10, max=50',
+28 silly registry.get     connection: 'Keep-Alive' } ]
+29 silly lockFile bcf5981b-mondodb mondodb@
+30 silly lockFile bcf5981b-mondodb mondodb@
+31 error 404 404 Not Found: mondodb
+31 error 404
+31 error 404 'mondodb' is not in the npm registry.
+31 error 404 You should bug the author to publish it
+31 error 404
+31 error 404 Note that you can also install from a
+31 error 404 tarball, folder, or http url, or git url.
+32 error System Windows_NT 6.2.9200
+33 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "mondodb"
+34 error cwd C:\Users\usuario\Desktop\miRepositorio\Procesos_Ingenieria_Software\javaScript\formContactoMongo
+35 error node -v v0.10.32
+36 error npm -v 1.4.28
+37 error code E404
+38 verbose exit [ 1, true ]

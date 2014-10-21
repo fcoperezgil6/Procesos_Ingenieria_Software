@@ -13,7 +13,7 @@ var dbPort=mongo.Connection.DEFAULT_PORT;
 
 var app=exp(); //el tutorial indicaba exp.createServer()
 
-app.use(app.router);
+//app.use(app.router);
 app.use(exp.static(__dirname + "/public"));
 
 app.get("/",function(request,response){
@@ -23,6 +23,8 @@ app.get("/hola/:text",function(request,response){
 	response.send("Hola "+request.params.text);
 });
 
+//se pasa id como parámetro
+//En el navegador poner http://localhost:1337/user/1 y devuelve el usuario 1
 app.get("/user/:id",function(request,response){
 	getUser(request.params.id,function(user){
 		if(!user){

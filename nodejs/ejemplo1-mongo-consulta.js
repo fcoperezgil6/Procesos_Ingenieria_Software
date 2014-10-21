@@ -10,7 +10,7 @@ db.open(function(error){
 	db.collection("user",function(error,col){
 		console.log("Tenemos la colección");
 
-		col.find({"id":"1"},function(error,cursor){
+		col.find({"name":"Pepe Lopez"},function(error,cursor){
 			cursor.toArray(function(error,users){
 				if (users.length==0){
 					console.log("No se encontraron usuarios");
