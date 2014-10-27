@@ -1,0 +1,106 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Colecciones</title>
+</head>
+<body>
+	<script src="lib/jquery-min.js"></script>
+	<script src="lib/underscore-min.js"></script>
+	<script src="lib/backbone-min.js"></script>
+	<script>
+		//1-Crear un objeto Persona y una colección Grupo
+		/*
+		var Persona = Backbone.Model.extend({
+			initialize:function(){
+				console.log("Persona inicializado");				
+			},
+			defaults:{
+				nombre:"indefinido",
+				edad:"indefinido"
+			}
+		});
+
+		var Grupo = Backbone.Collection.extend({
+			initialize:function(){
+				console.log("Colección Grupo inicializada");
+			},
+			model:Persona
+		});
+		
+		var persona = new Persona({"nombre":"Pepe"});
+		var grupo = new Grupo(persona);
+		//otro modo: grupo.add(persona)
+		//otro modo: 
+		grupo.add([{nombre:"Juan"},{nombre:"Luis"}]);
+		//Inspecciona los valores de persona y grupo en la consola del navegador
+		//inspecciona la coleccion con esta expresion: grupo.toJSON()
+		*/
+
+		//2-eliminar
+		//Para hacer estos ejemplos hacen falta las variables Persona, Grupo, persona y grupo
+		/*
+		grupo.remove(persona); //elimina a Pepe
+		console.log(grupo.toJSON());
+
+		grupo.reset([{nombre:"Pepa"},{nombre:"Lola"}]); //es como add pero primero vacía la coleccion
+		console.log(grupo.toJSON());
+		*/
+
+		//3-Definir un atributo id
+		var Persona = Backbone.Model.extend({
+			initialize:function(){
+				console.log("Persona inicializado");				
+			},
+			defaults:{
+				nombre:"indefinido",
+				edad:"indefinido",
+			//	id:0
+			}
+		});
+
+		var Grupo = Backbone.Collection.extend({
+			initialize:function(){
+				console.log("Colección Grupo inicializada");
+			},
+			model:Persona
+		});
+		
+		var persona = new Persona({"nombre":"Pepe"});
+		var grupo = new Grupo(persona);
+		//3a-descomenta el atriubto id en defaults de Persona
+		//Inspecciona los valores de los objetos persona y grupo
+
+		//grupo.add([{nombre:"Antonio",id:0},{nombre:"Juan"}]); 
+		//observa que la el objeto Antonio no se incluye en la coleccion porque tiene el mismo id que Pepe
+		
+		//3b-comenta el atributo id en defaults de Persona
+		//¿Como gestionar los id?: las colecciones gestionan un id interno llamado cid
+
+		grupo.add([{nombre:"Antonio"},{nombre:"Juan"}]); 
+		//esta funcion no funciona: console.log(grupo.getByCid("c1"));
+		console.log(grupo.at(1).toJSON()); //debería mostrar el objeto Antonio
+		//Otros métodos de colecciones: pop, push,... echar un vistazo a la web de Backbone Collection
+		grupo.push({nombre:"Bea"}); //agrega al final de la colección
+
+		//3c-Establecer un criterio de ordenacion al insertar un nuevo elemento en la coleccion
+		//Para ello hay que modificar la creacion de la coleccion incluyendo un apartado comparator en Grupo
+		// justo despues de la linea model:Persona
+		/*
+			//Ejemplo de comparator (incluye este codigo en la definicion de Grupo:
+			model:Persona,
+			comparator:function(persona){
+				persona.get("nombre");  //asi indicariamos que se ordenen por el campo nombre
+			}
+			//Definir la comparacion directamente:
+			model:Persona,
+			comparator:function(per1,per2){
+				per1.get("nombre") > per2.get("nombre");
+			}
+		//Una vez definido el comparator se puede invocar el metodo sort
+		*/
+
+		//Probar el metodo where(atributo) que devuelve todos los modelos que coinciden con el atributo
+		console.log(grupo.where({nombre:"Pepe"}));
+	</script>
+</body>
+</html>

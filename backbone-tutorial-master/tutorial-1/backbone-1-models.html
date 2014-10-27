@@ -1,0 +1,50 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Modelos</title>
+</head>
+<body>
+	<script src="lib/underscore-min.js"></script>
+	<script src="lib/backbone-min.js"></script>
+	<script type="text/javascript">
+	Persona = Backbone.Model.extend({
+		initialize: function(){
+			console.log("Hola");
+			//evento que se dispara cuando se cambia el nombre
+			this.bind("change:nombre", function(){
+				console.log(this.get("nombre"));
+			});
+			this.bind("error",function(model,error){
+				console.log(error);
+			})
+		},
+		defaults: {
+			nombre:"Nombre Ejemplo",
+			altura:"no se sabe"
+		},
+		validate: function(attributes,options){
+			if (attributes.nombre == 'Pepe'){
+				return "Vaya, tu nombre es Pepe";
+			}
+		}
+	});
+
+	var persona = new Persona({nombre:"Pepe",altura:"180"});
+	console.log(persona.get('nombre'));
+	var persona = new Persona();
+	console.log(persona.get('nombre'));
+
+	persona.set('nombre','Juanito Perez');
+	console.log(persona.get('nombre'));	
+
+	persona.set({nombre:"Luisito Juarez",altura:'190cm'});
+	console.log(persona.get('nombre')+" "+persona.get("altura"));	
+
+	persona.set({nombre:"Pepe",altura:"200cm"});
+
+	console.log(persona.attributes);
+	console.log(persona.toJSON());
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vistas</title>
+	<style type="text/css">
+		#contenedor {padding:20px; border:1px solid #333; width:400px;}
+		#plantilla-lista { display:none;}
+	</style>
+</head>
+<body>
+	<div id="contenedor">
+		<button>Cargar</button>
+		<ul id="lista">
+		</ul>
+	</div>
+
+	<div id="plantilla-lista">
+		<li><a href=""></a></li>
+	</div>
+
+	<script src="lib/jquery-min.js"></script>
+	<script src="lib/underscore-min.js"></script>
+	<script src="lib/backbone-min.js"></script>
+	<script type="text/javascript">
+		modelo = new Backbone.Model({
+			data:[
+			{ text:"Google", href:"http://google.com"},
+			{ text:"Facebook", href:"http://facebook.com"},
+			{ text:"Youtube", href:"http://youtube.com"}
+			]
+		});
+		/*
+		// 1- vista simple
+		
+		var View = Backbone.View.extend({
+			initialize: function(){
+				console.log("inicializar");
+				
+			}
+		});
+
+		var view = new View(); 
+		// también se puede definir new View{el:'#contenedor'}); // o también se puede usar jquery new View($('#contenedor')) o getElementById
+		// var view = new View({ tagName, className, id, attributes}) 
+		*/
+		
+
+		//2-Definir elementos en la vista (el), eventos (events) y la funcion render
+		var View = Backbone.View.extend({
+			initialize: function(){
+				console.log("inicializar");
+				this.template = $("#plantilla-lista").children(); // que pasa si no ponemos children()
+			},
+			el:"#contenedor",
+			events:{
+				"click button":"render" //click en el contexto del elemento (el)
+			},
+			render: function(){
+				var data = this.model.get("data");
+				for (var i=0, l=data.length; i<l; i++){
+					var li = this.template.clone().find("a").attr('href',data[i].href).text(data[i].text).end();
+					this.$el.find('ul').append(li);
+				}
+			}
+		});
+
+		var view = new View({model:modelo}); //definimos el modelo asociado a la vista
+
+	</script>
+</body>
+</html>

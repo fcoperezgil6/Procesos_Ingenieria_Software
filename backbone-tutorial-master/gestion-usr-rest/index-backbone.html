@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Backbone.js Users Manager</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+    </head>
+    <body>
+
+    <script type="text/template" id="user-list-template">
+    <a href="#/new" class="btn btn-primary">Nuevo usuario</a>
+    <hr />
+    <table class="table striped">
+      <thead>
+        <tr>
+          <th>Nombre</th><th>Apellidos</th><th>Email</th><th>Sexo</th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% _.each(users, function(user) { %>
+          <tr>
+            <td><%= user.get('nombre') %></td>
+            <td><%= user.get('apellidos') %></td>
+            <td><%= user.get('email') %></td>
+            <td><%= user.get('sexo') %></td>
+            <td><a href="#/edit/<%= user.get('_id') %>" class="btn">Edit</a></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </script>
+
+  <script type="text/template" id="edit-user-template">
+    <form class="edit-user-form">
+        <legend><%= user ? 'Actualizar' : 'Crear' %> usuario</legend>
+        <label>Nombre</label>
+        <input name="nombre" type="text" value="<%= user ? user.get('nombre') : '' %>" /> 
+        <label>Apellidos</label>
+        <input name="apellidos" type="text" value="<%= user ? user.get('apellidos') : '' %>" /> 
+        <label>Email</label>
+        <input name="email" type="text" value="<%= user ? user.get('email') : '' %>" /> 
+        <label>Sexo</label>
+        <input name="sexo" type="text" value="<%= user ? user.get('sexo') : '' %>" /> 
+        <hr />
+       <button type="submit" class="btn"><%= user ? 'Actualizar' : 'Crear' %> usuario</button>
+       <% if(user) { %>
+          <input type="hidden" name='id' value="<%= user.get('_id') %>" />
+          <button type="button" class="btn btn-danger delete">Eliminar</button>
+        <% }; %>
+    </form>
+  </script>
+
+   <div class="container">
+    <h1>Gestor de Usuarios</h1>
+    <hr />
+    <div class="page"></div>
+  </div>
+
+        <script src="js/lib/jquery-min.js"></script>
+        <script src="js/lib/underscore-min.js"></script>
+        <script src="js/lib/backbone-min.js"></script>
+
+        <script type="text/javascript">
+          var UserMan ={
+            Models:{},
+            Collections:{},
+            Views:{},
+            Templates:{}
+          };
+
+        </script>
+        
+        <script src="js/models/user.js"></script>
+        <script src="js/collections/userList.js"></script>        
+        <script src="js/views/userListView.js"></script>
+        <script src="js/views/editUserView.js"></script>
+        
+        <script src="js/main.js"></script>
+        
+        </script>
+    </body>
+</html>

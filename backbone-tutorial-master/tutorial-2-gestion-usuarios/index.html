@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<!--herramienta postman para ver peticiones al servidor nodejs-->
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.1/css/bootstrap.min.css">
+</head>
+<body>
+	<script src="js/lib/jquery-min.js" type="text/javascript"></script>
+  	<script src="js/lib/underscore-min.js" type="text/javascript"></script>
+  	<script src="js/lib/backbone-min.js"></script>
+
+  	<!-- template para el paso 3-3 -->
+	<script type="text/template" id="user-list-template">
+    <a href="#/new" class="btn btn-primary">Nuevo usuario</a>
+    <hr />
+    <table class="table striped">
+      <thead>
+        <tr>
+          <th>First Name</th><th>Last Name</th><th>Age</th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% _.each(users, function(user) { %>
+          <tr>
+            <td><%= user.get('firstname') %></td>
+            <td><%= user.get('lastname') %></td>
+            <td><%= user.get('age') %></td>
+            <td><a class="btn" href="#/edit/<%= user.id %>">Edit</a></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </script>
+
+  <script type="text/template" id="edit-user-template">
+    <form class="edit-user-form">
+    	<legend>Crear usuario</legend>
+        <label>First Name</label>
+        <input name="firstname" type="text" /> 
+        <label>Last Name</label>
+        <input name="lastname" type="text" /> 
+        <label>Age</label>
+        <input name="age" type="text" /> 
+        <hr />
+       <button type="submit" class="btn">Crear usuario</button> 
+    </form>
+  </script>
+
+   <div class="container">
+    <h1>Gestor de Usuarios</h1>
+    <hr />
+    <div class="page"></div>
+  </div>
+
+  <script>
+
+  		//3-b utiliza una función auxiliar para traer obtener la colección de usuarios
+		$.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
+      		options.url = 'http://backbonejs-beginner.herokuapp.com' + options.url;
+    	});
+
+    	//función auxiliar que utiliza para crear usuario
+    	$.fn.serializeObject = function() {
+	      var o = {};
+	      var a = this.serializeArray();
+	      $.each(a, function() {
+	          if (o[this.name] !== undefined) {
+	              if (!o[this.name].push) {
+	                  o[this.name] = [o[this.name]];
+	              }
+	              o[this.name].push(this.value || '');
+	          } else {
+	              o[this.name] = this.value || '';
+	          }
+	      });
+	      return o;
+	    };
+
+	  	//3-a define una colección para contener la lista de usuarios
+		var Users = Backbone.Collection.extend({
+		  	url:'/users'
+		  });
+
+		//En el paso 4 (Crear usuario)
+		var User = Backbone.Model.extend({
+			urlRoot:'/users'
+		});
+
+		//2-define una vista para mostrar la lista de usuarios
+		var UserList = Backbone.View.extend({
+		  	el: '.page',
+		  	render: function(){
+		  		// 3-c modifica la función render para que muestra la lista de usuarios en forma de tabla
+		  		// para la tabla utiliza una template que llama user-list-template y la ubica al principio del
+		  		// archivo
+		  		var that=this;
+		  		var users = new Users();
+		  		users.fetch({
+		  			success: function(){
+		  				var template = _.template($('#user-list-template').html(), {users: users.models});
+            			that.$el.html(template);
+		  				//comprobación: that.$el.html('El contenido debe aparecer aquí');
+		  			}
+		  		});
+
+		  		// en el paso-1 solo esto: 
+		  		//this.$el.html('El contenido debe aparecer aquí');
+		  	}
+		  });
+
+		var userList = new UserList();
+
+		//4- nuevo usuario
+		var EditUser = Backbone.View.extend({
+			el:'.page',
+			render: function(){
+				//4-a para probar
+				//this.$el.html('Editar usuario-nuevo');
+				var template = _.template($('#edit-user-template').html(), {});
+            			this.$el.html(template);	
+			},
+			events: {
+		        'submit .edit-user-form': 'saveUser',
+		      },
+      		saveUser: function (ev) {
+        		var userDetails = $(ev.currentTarget).serializeObject();	
+        		//console.log(userDetails);
+        		var user = new User();
+        		user.save(userDetails,{
+        			success: function(){
+        				//console.log("usuario creado");
+        				router.navigate('',{trigger:true})
+        			}
+        		})		
+        		return false;
+				}
+			});
+
+		var editUser = new EditUser();
+
+		//1-comienza definiendo un router para la home "":"home"
+		// en el paso 4 añade una route para "new":"edit"
+		var Router = Backbone.Router.extend({
+		        routes: {
+		          "": "home", 
+		          "new": "edit",
+		        }
+		    });
+
+		var router = new Router;
+		router.on('route:home', function() {
+		      // render user list
+		      //userListView.render();
+
+		      //en el paso 1 probar: 
+		      //console.log("Home page cargada");
+
+		      //en el paso 2:
+		      userList.render();
+		    });
+		router.on('route:edit', function(id) {
+	      		//userEditView.render({id: id});
+	      		editUser.render();
+	    	});
+	    Backbone.history.start();
+  </script>
+
+</body>
+</html>

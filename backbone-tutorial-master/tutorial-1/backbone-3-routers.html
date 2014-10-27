@@ -1,0 +1,61 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Rutas</title>
+</head>
+<body>
+	<script src="lib/jquery-min.js"></script>
+	<script src="lib/underscore-min.js"></script>
+	<script src="lib/backbone-min.js"></script>
+
+	<script>
+
+		// Esquema general de las rutas
+		/*
+		var Router = Backbone.Router.extend({
+			routes:{
+				"" : "func" //escribimos la ruta dentro del sitio; podemos indicar parametros con : por ejemplo ruta:parametro
+							//ojo que la ruta comienza con #, por ejemplo backbone-3-routes.html#pepeluis
+			},
+			func: function (id){ //el parametro id lo recogemos de la ruta ruta:parametro (id=parametro)
+
+			}
+		});
+			*/
+		//1-Ejemplo básico
+		
+		var Router = Backbone.Router.extend({
+			routes:{
+				"*action" : "func"
+			},
+			func: function(action){
+				console.log(action);
+			}
+		});
+		new Router();
+		Backbone.history.start(); //esta funcion sirve para buscar cambios en la ruta
+		
+		//2-Nueva ruta
+		/*
+		var Router = Backbone.Router.extend({
+			routes:{
+				"foo/:bar" :"testParam",  //ahora la ruta que se reconoce seria algo como #foo/cadena
+				"*action" : "func"
+			},
+			func: function(action){
+				console.log(action);
+			},
+			testParam:function(p){	//p es el parametro representado por :bar en la ruta #foo/:bar
+				console.log(p);
+			}
+		});
+		new Router();
+		Backbone.history.start();
+		*/
+		//3-Prueba a cambiar el orden de las rutas en el ejemplo 2. ¿Que ocurre?
+
+		//4- Agrega la siguiente etiqueta html en el body: <a href="#foo/ruta1">Haz click aqui</a>
+		//Comprueba el resultado utilizando el codigo del ejemplo (2)
+	</script>
+</body>
+</html>
