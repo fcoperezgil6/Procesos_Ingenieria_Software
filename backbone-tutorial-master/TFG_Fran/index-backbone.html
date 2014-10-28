@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Gestion TFG</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+    </head>
+    <body>
+
+    <script type="text/template" id="tfg-list-template">
+    <a href="#/new" class="btn btn-primary">Nuevo tfg</a>
+    <hr />
+    <table class="table striped">
+      <thead>
+        <tr>
+          <th>Titulo</th><th>Descripcion</th><th>Alumno</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% _.each(tfgs, function(tfg) { %>
+          <tr>
+            <td><%= tfg.get('titulo') %></td>
+            <td><%= tfg.get('descripcion') %></td>
+            <td><%= tfg.get('alumno') %></td>
+            <td><a href="#/edit/<%= tfg.get('_id') %>" class="btn btn-warning">Edit</a></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </script>
+
+  <script type="text/template" id="edit-tfg-template">
+    <form class="edit-tfg-form">
+        <legend><%= tfg ? 'Actualizar' : 'Crear' %> tfg</legend>
+        <label>Titulo</label>
+        <input name="titulo" type="text" value="<%= tfg ? tfg.get('titulo') : '' %>" /> 
+        <label>Descripcion</label>
+        <input name="descripcion" type="text" value="<%= tfg ? tfg.get('descripcion') : '' %>" /> 
+        <label>Alumno</label>
+        <input name="alumno" type="text" value="<%= tfg ? tfg.get('alumno') : '' %>" />  
+        <hr />
+       <button type="submit" class="btn btn-info"><%= tfg ? 'Actualizar' : 'Crear' %> tfg</button>
+       <% if(tfg) { %>
+          <input type="hidden" name='id' value="<%= tfg.get('_id') %>" />
+          <button type="button" class="btn btn-danger delete">Eliminar</button>
+        <% }; %>
+    </form>
+  </script>
+
+   <div class="container">
+    <h1>Gestor de Tfgs</h1>
+    <hr />
+    <div class="page"></div>
+  </div>
+
+        <script src="js/lib/jquery-min.js"></script>
+        <script src="js/lib/underscore-min.js"></script>
+        <script src="js/lib/backbone-min.js"></script>
+
+        <script type="text/javascript">
+          var TfgMan ={
+            Models:{},
+            Collections:{},
+            Views:{},
+            Templates:{}
+          };
+
+        </script>
+        
+        <script src="js/models/tfg.js"></script>
+        <script src="js/collections/tfgList.js"></script>        
+        <script src="js/views/tfgListView.js"></script>
+        <script src="js/views/editTfgView.js"></script>
+        
+        <script src="js/mainTfg.js"></script>
+        
+        </script>
+    </body>
+</html>

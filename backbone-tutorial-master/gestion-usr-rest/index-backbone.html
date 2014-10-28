@@ -23,7 +23,7 @@
             <td><%= user.get('apellidos') %></td>
             <td><%= user.get('email') %></td>
             <td><%= user.get('sexo') %></td>
-            <td><a href="#/edit/<%= user.get('_id') %>" class="btn">Edit</a></td>
+            <td><a href="#/edit/<%= user.get('_id') %>" class="btn btn-warning">Edit</a></td>
           </tr>
         <% }); %>
       </tbody>
@@ -42,7 +42,7 @@
         <label>Sexo</label>
         <input name="sexo" type="text" value="<%= user ? user.get('sexo') : '' %>" /> 
         <hr />
-       <button type="submit" class="btn"><%= user ? 'Actualizar' : 'Crear' %> usuario</button>
+       <button type="submit" class="btn btn-info"><%= user ? 'Actualizar' : 'Crear' %> usuario</button>
        <% if(user) { %>
           <input type="hidden" name='id' value="<%= user.get('_id') %>" />
           <button type="button" class="btn btn-danger delete">Eliminar</button>

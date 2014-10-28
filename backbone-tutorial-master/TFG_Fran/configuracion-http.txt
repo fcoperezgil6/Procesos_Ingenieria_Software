@@ -1,0 +1,10 @@
+/*
+
+url         HTTP Method  Operation
+/users      GET          Get an array of all users
+/users/:id  GET          Get the user with id of :id
+/users      POST         Add a new user and return the user with an id attribute added
+/users/:id  PUT          Update the user with id of :id
+/users/:id  DELETE       Delete the user with id of :id
+
+*/

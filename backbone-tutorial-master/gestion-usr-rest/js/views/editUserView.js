@@ -10,7 +10,7 @@ UserMan.Views.EditUserView = Backbone.View.extend({
         //4-a para probar
         //this.$el.html('Editar usuario-nuevo');        
         var that=this;
-        if (id){
+        if (id){//Si se le indica un id
              //console.log("id ",id);
             that.user = new UserMan.Models.User({id:id});
             that.user.fetch({
@@ -20,7 +20,7 @@ UserMan.Views.EditUserView = Backbone.View.extend({
                 }
             })
         }
-        else {
+        else {//Si no existe pone una plantilla vacia
             var template = _.template($('#edit-user-template').html(), {user:null});
             //console.log('plantilla:');
             this.$el.html(template);  

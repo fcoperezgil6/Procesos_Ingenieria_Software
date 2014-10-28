@@ -4,7 +4,7 @@ UserMan.Views.Users = Backbone.View.extend({
     //template:UserMan.Templates.users,
     initialize: function () {
         _.bindAll(this, "render");
-        this.collection.fetch({reset:true});
+        this.collection.fetch({reset:true});//peticion al servidor
         this.collection.bind("reset", this.render);
     },
   
